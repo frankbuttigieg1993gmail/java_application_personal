@@ -50,6 +50,8 @@ jobs:
           --no-daemon \
           -Porg.gradle.java.installations.auto-download=false \
           -Dorg.gradle.java.home=$JAVA_HOME \
+          -Dorg.gradle.workers.max=1 \
+          -Porg.gradle.compiler.execution.strategy=in-process \
           -x test
 
     # Perform the CodeQL Analysis
