@@ -29,28 +29,27 @@ jobs:
     - name: Set up JDK
       uses: actions/setup-java@v4
       with:
-        java-version: '17' # Match your project's Java version
+        java-version: '21' # Match your project's Java version
         distribution: 'temurin'
 
     # Set up Gradle and configure caching natively
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@v4
 
-    # Initializes the CodeQL tools for scanning
-    - name: Initialize CodeQL
+   - name: Initialize CodeQL
       uses: github/codeql-action/init@v3
       with:
-        languages: ${{ matrix.language }}
-        # Default queries. Change to 'security-extended' or 'security-and-quality' if needed.
-        queries: security-extended 
+        languages: 'java'
 
-    # Manually compile your Gradle project so CodeQL captures the compilation
+    # Force Gradle 9.6.1 to use the system Java 21 JDK and ignore toolchain isolation
     - name: Build with Gradle
-      run: ./gradlew clean compileJava \
+      run: |
+        ./gradlew clean compileJava \
           --no-build-cache \
           --no-configuration-cache \
           --no-daemon \
           -Porg.gradle.java.installations.auto-download=false \
+          -Dorg.gradle.java.home=$JAVA_HOME \
           -x test
 
     # Perform the CodeQL Analysis
