@@ -2,10 +2,6 @@ name: Build Code Quality Pipeline
 run-name: ${{ github.ref_name }}.${{ github.run_number }}
 
 on:
-    # push:
-    #   branches:
-    #     - main
-    #     - 'release/**'
   workflow_dispatch:
 
 jobs:
