@@ -55,3 +55,6 @@ jobs:
     # Perform the CodeQL Analysis
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
+
+    - name: Generate and Submit Dependency Graph
+      uses: gradle/actions/dependency-submission@v4
