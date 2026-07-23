@@ -1,0 +1,25 @@
+name: Build Pipeline
+run-name: ${{ github.ref_name }}.${{ github.run_number }}
+
+on:
+  # push:
+  #   branches:
+  #     - main
+  #     - 'release/**'
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: '-'
+    uses: frankbuttigieg1993-gmail/cicd/.github/workflows/java-build.yml@main
+    permissions:
+      id-token: write
+      contents: write 
+      security-events: write
+    with:
+      target-runner: "['self-hosted', 'linux', 'x64']"
+    secrets:
+      GH_PAT_TOKEN: ${{ secrets.GH_PAT_TOKEN }} 
+      GH_PRIVATE_SSH_KEY: ${{ secrets.GH_PRIVATE_SSH_KEY }}
+# secrets: inherit
+    
