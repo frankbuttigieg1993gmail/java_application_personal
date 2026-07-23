@@ -1,0 +1,53 @@
+name: "CodeQL Scan"
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  schedule:
+    - cron: '30 1 * * 1' # Runs every Monday at 01:30 UTC
+
+jobs:
+  analyze:
+    name: Analyze Code
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ 'java' ] # Use 'java' if you do not use Kotlin
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up JDK
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17' # Match your project's Java version
+        distribution: 'temurin'
+
+    # Set up Gradle and configure caching natively
+    - name: Setup Gradle
+      uses: gradle/actions/setup-gradle@v4
+
+    # Initializes the CodeQL tools for scanning
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v3
+      with:
+        languages: ${{ matrix.language }}
+        # Default queries. Change to 'security-extended' or 'security-and-quality' if needed.
+        queries: security-extended 
+
+    # Manually compile your Gradle project so CodeQL captures the compilation
+    - name: Build with Gradle
+      run: ./gradlew build -x test
+
+    # Perform the CodeQL Analysis
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v3
