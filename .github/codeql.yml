@@ -46,7 +46,7 @@ jobs:
 
     # Manually compile your Gradle project so CodeQL captures the compilation
     - name: Build with Gradle
-      run: ./gradlew build -x test
+      run: ./gradlew clean build -x test --no-build-cache --no-daemon
 
     # Perform the CodeQL Analysis
     - name: Perform CodeQL Analysis
