@@ -40,6 +40,7 @@ jobs:
       uses: github/codeql-action/init@v3
       with:
         languages: 'java'
+        build-mode: none
 
     # Force Gradle 9.6.1 to use the system Java 21 JDK and ignore toolchain isolation 
     - name: Build with Gradle
