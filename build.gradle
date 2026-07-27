@@ -82,7 +82,9 @@ check.dependsOn tasks.named('cyclonedxBom')
 tasks.cyclonedxDirectBom {
     schemaVersion = "VERSION_16"
     includeMetadataResolution = true
-    includeConfigs = ["runtimeClasspath"]
+    // Leaving includeConfigs unset to generate a complete SBOM
+    // If you want a cleaner application-only SBOM for a shipped Java service, then runtimeClasspath plus compileClasspath is a reasonable compromise, because that captures what the app uses to compile and run while avoiding many test-only configurations. But if your goal is “don’t miss anything,” don’t restrict it.
+//    includeConfigs = ["runtimeClasspath", "compileClasspath"]
 }
 
 // 2. Configure properties for the aggregated BOM task (handles multi-project roots)
