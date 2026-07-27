@@ -44,7 +44,7 @@ jobs:
     # Force Gradle 9.6.1 to use the system Java 21 JDK and ignore toolchain isolation 
     - name: Build with Gradle
       run: |
-        ./gradlew clean compileJava \
+        ./gradlew clean compileJava build \
           --no-build-cache \
           --no-configuration-cache \
           --no-daemon \
@@ -57,4 +57,6 @@ jobs:
     # Perform the CodeQL Analysis
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
+      with:
+        category: "/language:java"
 
