@@ -44,7 +44,7 @@ jobs:
     # Force Gradle 9.6.1 to use the system Java 21 JDK and ignore toolchain isolation 
     - name: Build with Gradle
       run: |
-        ./gradlew clean dependencies resolveAndLockAll compileJava build \
+        ./gradlew clean dependencies compileJava build \
           --no-build-cache \
           --write-locks \
           --no-configuration-cache \
