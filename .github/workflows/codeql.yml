@@ -17,6 +17,18 @@ permissions:
     actions: write
 
 jobs:
+  
+  dependency-review:
+    name: Dependency review (SCA for changed deps)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Dependency review
+        # Uses GitHub Dependency Review to analyze dependency changes in the PR and report known advisories
+        uses: github/dependency-review-action@v2
+
   analyze:
     name: Analyze Code
     runs-on: ubuntu-latest
