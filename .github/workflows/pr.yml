@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    name: '-'
+    name: 'CI'
     uses: frankbuttigieg1993-gmail/cicd/.github/workflows/java-build-pr.yml@main
     permissions:
       contents: write
