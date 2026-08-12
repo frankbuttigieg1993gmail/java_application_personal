@@ -16,6 +16,6 @@ jobs:
       security-events: write
       actions: write
     with:
-      target-runner: "['self-hosted', 'linux', 'x64']"
+      target-runner: "['self-hosted', 'linux', 'x64']" 
     
  
