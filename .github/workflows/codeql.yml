@@ -17,20 +17,6 @@ permissions:
     actions: write
 
 jobs:
-<<<<<<< HEAD
-
-  dependency-review:
-    name: Dependency review (SCA for changed deps)
-    runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request'
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v7
-  
-      - name: Dependency review
-        uses: github/dependency-review-action@v3
-=======
->>>>>>> 184cdc36a81f09c1ae8ef1e4973db001331a88ce
         
   analyze:
     name: Analyze Code
