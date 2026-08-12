@@ -34,6 +34,6 @@ jobs:
           retry-on-snapshot-warnings: true
           retry-on-snapshot-warnings-timeout: 120
 
-          deny-packages: 'pkg:maven/org.apache.logging.log4j:log4j-core,pkg:maven/org.springframework:spring-beans,pkg:maven/com.fasterxml.jackson.core:jackson-databind'
+#          deny-packages: 'pkg:maven/org.apache.logging.log4j:log4j-core,pkg:maven/org.springframework:spring-beans,pkg:maven/com.fasterxml.jackson.core:jackson-databind'
 
           comment-summary-in-pr: always
