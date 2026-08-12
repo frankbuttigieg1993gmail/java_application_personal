@@ -75,9 +75,9 @@ tasks.jacocoTestCoverageVerification {
     }
 }
 
-dependencyLocking {
-    lockAllConfigurations()
-}
+// dependencyLocking {
+//     lockAllConfigurations()
+// }
 
 check.dependsOn tasks.jacocoTestCoverageVerification
 check.dependsOn tasks.named('cyclonedxBom')
