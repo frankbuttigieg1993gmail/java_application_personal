@@ -21,12 +21,12 @@ jobs:
   dependency-review:
     name: Dependency review (SCA for changed deps)
     runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
-
+        uses: actions/checkout@v7
+  
       - name: Dependency review
-        # Uses GitHub Dependency Review to analyze dependency changes in the PR and report known advisories
         uses: github/dependency-review-action@v2
         
   analyze:
