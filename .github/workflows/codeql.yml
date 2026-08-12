@@ -27,7 +27,7 @@ jobs:
         uses: actions/checkout@v7
   
       - name: Dependency review
-        uses: github/dependency-review-action@v2
+        uses: github/dependency-review-action@v4
         
   analyze:
     name: Analyze Code
