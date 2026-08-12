@@ -23,7 +23,7 @@ jobs:
         with:
           fail-on-severity: high
 
-          # Block these Maven dependencies in all versions
-          deny-packages: 'pkg:maven/org.apache.logging.log4j/log4j-core,pkg:maven/org.springframework/spring-beans,pkg:maven/com.fasterxml.jackson.core/jackson-databind'
+          # Block all versions of these Maven packages
+          deny-packages: 'pkg:maven/org.apache.logging.log4j:log4j-core,pkg:maven/org.springframework:spring-beans,pkg:maven/com.fasterxml.jackson.core:jackson-databind'
 
           comment-summary-in-pr: always
