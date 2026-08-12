@@ -7,7 +7,7 @@ This app:
 - includes Dev / Staging / Prod profile files
 - includes unit tests
 - generates JaCoCo coverage reports
-- includes a Dockerfile
+- includes a Dockerfile 
 
 ## Run locally
 
