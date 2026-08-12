@@ -2,7 +2,7 @@
 # Lines starting with '#' are ignored.
 
 # 1. Global Owner (Catches any changes unless overridden below)
-*                      @frankbuttigieg1993gmail @frankbuttigieg93-png
+*                      @frankbuttigieg93-png
 
 <!-- # 2. Match by Extension (All JavaScript files anywhere in the repo)
 *.js                   @js-expert-user
