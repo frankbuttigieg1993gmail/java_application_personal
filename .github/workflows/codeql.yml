@@ -42,7 +42,7 @@ jobs:
           # removed: build-mode: none
 
       - name: Autobuild
-        uses: github/codeql-action/autobuild@v2
+        uses: github/codeql-action/autobuild@v3
 
       - name: Build application
         run: ./gradlew clean build -x test --no-daemon
