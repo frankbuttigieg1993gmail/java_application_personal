@@ -39,6 +39,7 @@ jobs:
         with:
           languages: java
           # removed: build-mode: none
+          queries: security-extended
 
       - name: Autobuild
         uses: github/codeql-action/autobuild@v4
